@@ -1,0 +1,20 @@
+@using Travel.Models;
+
+<h1>Cities Visited</h1>
+@if (Model.Count == 0)
+{
+  <p>You have never been anywhere! So sad :(</p>
+}
+<ul>
+  @foreach (Place place in Model)
+  {
+    <li><a href='/places/@place.Id'>@place.CityName</a></li>
+    <li>@place.Description</li>
+  }
+</ul>
+
+<a href="/places/new">Add another city.</a>
+
+<form action="/places/delete" method="post">
+  <button type="submit" name="button">Clear All Items</button>
+</form>
